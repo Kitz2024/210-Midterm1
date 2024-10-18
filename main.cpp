@@ -1,6 +1,7 @@
 // Kit Pollinger
 // 210 - Midterm - 1
 
+//210-Midterm-Starter Code
 #include <iostream>
 using namespace std;
 
