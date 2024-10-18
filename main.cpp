@@ -1,11 +1,12 @@
 // Kit Pollinger
 // 210 - Midterm - 1
 
-//210-Midterm-Starter Code
+// 210-Midterm-Starter Code
 #include <iostream>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+
 class DoublyLinkedList
 {
 private:
@@ -25,11 +26,13 @@ private:
     Node *tail;
 
 public:
+    // Identifies the head and tail points, indicating empty list
     DoublyLinkedList()
     {
         head = nullptr;
         tail = nullptr;
     }
+    // Inserts New Node after specific Position and updates pointers
     void insert_after(int value, int position)
     {
         if (position < 0)
@@ -57,7 +60,7 @@ public:
             delete newNode;
             return;
         }
-        // Insert new node after the found note, update pointers
+        // Insert new node after the found node, update pointers
         newNode->next = temp->next;
         newNode->prev = temp;
         if (temp->next)
@@ -66,6 +69,7 @@ public:
             tail = newNode;
         temp->next = newNode;
     }
+    // Removes a note with a given value
     void delete_val(int value)
     {
         if (!head)
@@ -85,6 +89,7 @@ public:
             tail = temp->prev;
         delete temp;
     }
+    // removes a node at a specific position
     void delete_pos(int pos)
     {
         if (!head)
@@ -123,6 +128,7 @@ public:
         temp->next->prev = tempPrev;
         delete temp;
     }
+    // Adds New Node to the end of the List
     void push_back(int v)
     {
         Node *newNode = new Node(v);
@@ -135,6 +141,7 @@ public:
             tail = newNode;
         }
     }
+    // Adds New Node to the start of the List
     void push_front(int v)
     {
         Node *newNode = new Node(v);
@@ -147,6 +154,7 @@ public:
             head = newNode;
         }
     }
+    // Removes the first Node from the list
     void pop_front()
     {
         if (!head)
@@ -164,6 +172,7 @@ public:
             head = tail = nullptr;
         delete temp;
     }
+    // removes the last node from the list
     void pop_back()
     {
         if (!tail)
@@ -181,6 +190,7 @@ public:
             head = tail = nullptr;
         delete temp;
     }
+    // Deallocates memory for all nodes in the List
     ~DoublyLinkedList()
     {
         while (head)
@@ -190,6 +200,7 @@ public:
             delete temp;
         }
     }
+    // Prints the list elements in forward order
     void print()
     {
         Node *current = head;
@@ -205,6 +216,7 @@ public:
         }
         cout << endl;
     }
+    // prints the list elements in reverse order
     void print_reverse()
     {
         Node *current = tail;
@@ -233,6 +245,7 @@ public:
         cout << endl;
     }
 };
+
 int main()
 {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid compiler warning
